@@ -49,13 +49,15 @@ module.exports = class extends Component {
                     {page.layout !== 'page' ? <div class="article-meta is-size-7 is-uppercase level is-mobile">
                         <div class="level-left">
                             {/* Creation Date */}
-                            {page.date && <span class="level-item" dangerouslySetInnerHTML={{
-                                __html: _p('article.created_at', `<time dateTime="${date_xml(page.date)}" title="${new Date(page.date).toLocaleString()}">${date(page.date)}</time>`)
-                            }}></span>}
+                            {page.date && <span class="level-item">
+                                <i className="far fa-calendar-alt">&nbsp;</i>
+                                <time dateTime={date_xml(page.date)} title={date_xml(page.date)}>{date(page.date)}</time>
+                            </span>}
                             {/* Last Update Date */}
-                            {shouldShowUpdated && <span class="level-item" dangerouslySetInnerHTML={{
-                                __html: _p('article.updated_at', `<time dateTime="${date_xml(page.updated)}" title="${new Date(page.updated).toLocaleString()}">${date(page.updated)}</time>`)
-                            }}></span>}
+                            {shouldShowUpdated && <span class="level-item is-hidden-mobile">
+                                <i class="far fa-calendar-check">&nbsp;</i>
+                                <time dateTime={date_xml(page.updated)} title={date_xml(page.updated)}>{date(page.updated)}</time>
+                            </span>}
                             {/* author */}
                             {page.author ? <span class="level-item"> {page.author} </span> : null}
                             {/* Categories */}
