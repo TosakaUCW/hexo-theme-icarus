@@ -114,3 +114,6 @@ yarn.lock
 *.ipr
 *.iws
 *.iml
+
+# Ignore Mac Finder config files
+*.DS_Store
